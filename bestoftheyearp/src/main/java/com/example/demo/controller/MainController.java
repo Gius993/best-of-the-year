@@ -32,14 +32,20 @@ public class MainController {
 		bestMovies.add(new Movie(2, "Il padrino"));
 		bestMovies.add(new Movie(3, "Il padrino pt2"));
 		return bestMovies;
+		
 	}
-
+	// per id
+	public Movie getMovie(int id) {
+		return getBestMovies().get(id-1);
+	}
+	public Song getSong(int id) {
+		return getBestSongs().get(id-1);
+	}
 	@GetMapping("/movies")
 	public String movies(Model model) {
 		model.addAttribute("movies", getBestMovies());
 		return "movies";
 	}
-	// prendo film per id 
 	
 
 	
@@ -57,5 +63,16 @@ public class MainController {
 		return "songs";
 	}
 
+	@GetMapping("/movies/{id}")
+	public String movie(Model model, @PathVariable("id") String id) {
+		model.addAttribute("movie", getBestMovies().get(Integer.parseInt(id) - 1));
 
+		return "movie";
+	}
+	@GetMapping("/songs/{id}")
+	public String song(Model model, @PathVariable("id") String id) {
+		model.addAttribute("song", getBestSongs().get(Integer.parseInt(id) - 1));
+
+		return "song";
+	}
 }
