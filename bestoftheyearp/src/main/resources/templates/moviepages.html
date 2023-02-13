@@ -10,13 +10,9 @@
 <body>
 
 </body>
-<div th:replace="~{fragments :: navbar('songs')}"></div>
+<div th:replace="~{fragments :: navbar('moviepages')}"></div>
 <div>
-	<ul>
-		<li th:each="song : ${songs}">
-			<a th:href="@{/song/{id}(id=${song.id})}" th:text="${song.title}"></a>
-		</li>
-	</ul>
+	
 </div>
 <div th:replace="~{fragments :: script}"></div>
 </html>

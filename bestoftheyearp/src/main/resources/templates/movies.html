@@ -4,10 +4,19 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>movies</title>
+	<div th:replace="~{fragments :: head}"></div>
 </head>
 
 <body>
-	
+
 </body>
-	<h1> [[${movies}]]!</h1>
+<div th:replace="~{fragments :: navbar('movies')}"></div>
+<div>
+	<ul>
+		<li th:each="movie : ${movies}">
+			<a th:href="@{/movie/{id}(id=${movie.id})}" th:text="${movie.title}"></a>
+		</li>
+	</ul>
+</div>
+<div th:replace="~{fragments :: script}"></div>
 </html>

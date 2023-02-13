@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<th:block th:fragment="head">
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Bootstrap CSS -->
+		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" />
+	</th:block>
+
+	<div th:fragment="script">
+		<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
+	</div>
+
+	<ul th:fragment="navbar(pagina)" class="nav nav-tabs">
+		<li class="nav-item">
+			<a class="nav-link" th:href="@{/}" th:classAppend="${pagina=='home'}? active : not-active">Home</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" th:href="@{/movies}"
+				th:classAppend="${pagina=='movies'}? active : not-active">movies</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" th:href="@{/songs}"
+				th:classAppend="${pagina=='songs'}? active : not-active">songs</a>
+		</li>
+	</ul>
+
+</body>
+
+</html>

@@ -4,10 +4,17 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Pagina di benvenuto</title>
+	<div th:replace="~{fragments :: head}"></div>
 </head>
 
 <body>
-	
+	<div th:replace="~{fragments :: navbar('home')}"></div>
+	<div class="rosso"
+ 		> [[${title}]]!
+ 	</div>
+ 	
+ 	
+ 	
+ 	<div th:replace="~{fragments :: script}"></div>
 </body>
-	<h1> [[${name}]]!</h1>
 </html>
